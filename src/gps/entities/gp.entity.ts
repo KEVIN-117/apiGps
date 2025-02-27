@@ -9,12 +9,12 @@ export type CatDocument = HydratedDocument<CreateGpDto>;
 export class PointGPS {
     @Prop({ required: true, type: String })
     _id: string
-    @Prop({type: Object})
-    point: {
+    @Prop(raw({
         latitud: { type: String },
         longitud: { type: String },
         _id: { type: String },
-    }
+    }))
+    point: Record<string, any>
     @Prop({ required: true, type: String })
     speed: number
     @Prop({ required: true, type: String })
